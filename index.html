@@ -1,0 +1,328 @@
+
+  <!DOCTYPE html>
+  <!--
+    Generated with CSEdge Portfolio Builder
+    https://csedge.co
+    Author: CSEdge - Empowering Developers Worldwide
+    Template: Modern Portfolio
+  -->
+  <html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8">
+    <title>V S Manjunadh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <style>
+      :root {
+        --bg-color: #0a0a0a;
+        --text-color: #ffffff;
+        --accent-color: #5448F9;
+        --secondary-accent: #36d1dc;
+        --card-bg: #171717;
+        --nav-bg: #0f0f0f;
+        --border-color: #333333;
+        --muted-text: rgba(255,255,255,0.6);
+      }
+      
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      
+      body { 
+        font-family: 'Outfit', sans-serif; 
+        background-color: var(--bg-color); 
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      
+      /* Scrollbar */
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: var(--bg-color); }
+      ::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 4px; }
+      
+      /* Navbar */
+      .navbar {
+        position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+        background: var(--nav-bg);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+      .nav-container {
+        max-width: 1200px; margin: 0 auto; padding: 1rem 2rem;
+        display: flex; justify-content: space-between; align-items: center;
+      }
+      .logo { font-weight: 700; font-size: 1.5rem; background: linear-gradient(135deg, var(--accent-color), var(--secondary-accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+      
+      .nav-links { display: none; gap: 2rem; }
+      @media(min-width: 768px) { .nav-links { display: flex; } }
+      .nav-link { color: var(--text-color); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+      .nav-link:hover { color: var(--accent-color); }
+
+      /* Hero */
+      .hero {
+        min-height: 100vh;
+        display: flex; align-items: center; justify-content: center;
+        position: relative; padding: 6rem 2rem 4rem;
+        overflow: hidden;
+      }
+      .hero-bg {
+        position: absolute; inset: 0; z-index: -1;
+        background: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.03) 0%, transparent 20%),
+                    radial-gradient(circle at 90% 80%, rgba(255,255,255,0.03) 0%, transparent 20%);
+      }
+      .hero-content {
+        max-width: 1200px; width: 100%;
+        display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center;
+      }
+      @media(min-width: 900px) { .hero-content { grid-template-columns: 1.2fr 1fr; } }
+      
+      .hero-text h1 {
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        line-height: 1.1; font-weight: 800; margin-bottom: 1.5rem;
+        letter-spacing: -0.02em;
+      }
+      .hero-tagline {
+        font-size: 1.2rem; margin-bottom: 2.5rem; color: var(--muted-text); max-width: 600px;
+      }
+      .btn {
+        display: inline-flex; align-items: center; gap: 0.5rem;
+        padding: 0.8rem 2rem; border-radius: 50px;
+        font-weight: 600; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent-color), var(--secondary-accent));
+        color: white; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      }
+      .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+
+      /* Stats / Grid for Hero Image */
+      .hero-visual {
+        position: relative; display: flex; justify-content: center;
+      }
+      .profile-blob {
+        width: 300px; height: 300px; border-radius: 50%;
+        object-fit: cover; border: 4px solid var(--card-bg);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        z-index: 2; position: relative;
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+      /* Sections General */
+      .section { padding: 6rem 2rem; }
+      .container { max-width: 1200px; margin: 0 auto; }
+      .section-header { margin-bottom: 4rem; text-align: center; }
+      .section-title {
+        font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;
+        background: linear-gradient(135deg, var(--accent-color), var(--secondary-accent));
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        display: inline-block;
+      }
+      
+      /* Skills */
+      .skills-container { display: grid; gap: 2rem; }
+      .skill-category h3 { font-size: 1.2rem; margin-bottom: 1rem; opacity: 0.9; }
+      .skill-cloud { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+      .skill-pill {
+        padding: 0.6rem 1.2rem; border-radius: 12px;
+        background: var(--card-bg); border: 1px solid var(--border-color);
+        font-weight: 500; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem;
+        transition: all 0.2s;
+      }
+      .skill-pill:hover {
+        border-color: var(--accent-color); transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      }
+      .skill-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-color); }
+
+      /* Experience Timeline */
+      .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+      .timeline::before {
+        content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+        width: 2px; background: var(--border-color);
+        display: none; /* Mobile hidden by default, can act differently if needed */
+      }
+      @media(min-width: 768px) { .timeline::before { display: block; left: 50%; transform: translateX(-1px); } }
+
+      .timeline-item {
+        margin-bottom: 3rem; position: relative; width: 100%;
+        display: flex; flex-direction: column; gap: 1rem;
+      }
+      @media(min-width: 768px) {
+        .timeline-item { flex-direction: row; justify-content: center; align-items: center; gap: 4rem; }
+        .timeline-item:nth-child(even) { flex-direction: row-reverse; }
+        .timeline-content { width: 45%; text-align: right; }
+        .timeline-item:nth-child(even) .timeline-content { text-align: left; }
+        .timeline-date { width: 45%; text-align: left; }
+        .timeline-item:nth-child(even) .timeline-date { text-align: right; }
+      }
+
+      .timeline-dot {
+        width: 16px; height: 16px; background: var(--accent-color);
+        border-radius: 50%; border: 4px solid var(--bg-color);
+        box-shadow: 0 0 0 2px var(--accent-color);
+        position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+        display: none; z-index: 5;
+      }
+      @media(min-width: 768px) { .timeline-dot { display: block; } }
+
+      .timeline-card {
+        background: var(--card-bg); padding: 1.5rem; border-radius: 16px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      }
+      .role { font-weight: 700; font-size: 1.1rem; color: var(--text-color); }
+      .company { color: var(--accent-color); font-weight: 500; font-size: 0.95rem; margin-bottom: 0.5rem; }
+      .desc { font-size: 0.9rem; opacity: 0.8; }
+      .date-badge {
+        display: inline-block; padding: 0.3rem 0.8rem; border-radius: 20px;
+        background: rgba(255,255,255,0.1);
+        font-size: 0.85rem; font-weight: 500;
+      }
+
+      /* Projects Grid */
+      .projects-grid {
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;
+      }
+      .project-card {
+        background: var(--card-bg); border-radius: 20px; overflow: hidden;
+        border: 1px solid var(--border-color); transition: all 0.3s ease;
+        display: flex; flex-direction: column;
+      }
+      .project-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+      .project-img {
+        width: 100%; height: 200px; object-fit: cover; background: var(--border-color);
+      }
+      .project-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+      .project-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+      .project-desc { 
+        font-size: 0.95rem; opacity: 0.8; margin-bottom: 1.5rem; flex: 1;
+        display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+      }
+      .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; }
+      .tag { font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; background: rgba(255,255,255,0.1); }
+
+      /* Footer */
+      footer {
+        padding: 4rem 2rem; text-align: center; border-top: 1px solid var(--border-color);
+        background: var(--card-bg); margin-top: 4rem;
+      }
+      .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; }
+      .social-icon {
+        width: 45px; height: 45px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        background: rgba(255,255,255,0.05);
+        color: var(--text-color); font-size: 1.2rem; transition: all 0.2s;
+      }
+      .social-icon:hover { background: var(--accent-color); color: white; transform: translateY(-3px); }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo">V S Manjunadh</a>
+        <div class="nav-links">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="about" class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-text" data-aos="fade-right">
+          <div class="hero-tagline">Hello, I'm</div>
+          <h1>V S Manjunadh</h1>
+          <p class="hero-tagline" style="margin-bottom: 2rem;">
+            i am very much intrested in building the live projects in hackthons and extra please sekecct my project and portifoile
+          </p>
+          <div class="flex gap-4">
+             
+             
+          </div>
+        </div>
+        <div class="hero-visual" data-aos="zoom-in">
+          <img src="https://ui-avatars.com/api/?name=V%20S%20Manjunadh&background=random&size=300" alt="V S Manjunadh" class="profile-blob">
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    
+
+    <!-- Projects -->
+    
+    <section id="projects" class="section" style="background: var(--card-bg)">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2 class="section-title">Featured Projects</h2>
+        </div>
+        <div class="projects-grid">
+          
+            <article class="project-card" data-aos="fade-up" data-aos-delay="0">
+              <div class="project-img-wrapper" style="overflow:hidden">
+                 <img 
+                   src="https://placehold.co/600x400/222/white?text=" 
+                   alt="" 
+                   class="project-img"
+                 >
+              </div>
+              <div class="project-body">
+                <h3 class="project-title"></h3>
+                <p class="project-desc"></p>
+                <div class="project-tags">
+                  
+                </div>
+                
+              </div>
+            </article>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- Experience -->
+    
+
+     <!-- Education -->
+    
+
+    <!-- Certifications & Awards -->
+    
+
+    <!-- Testimonials -->
+    
+
+    <!-- Languages -->
+    
+
+    <!-- Footer -->
+    <footer id="contact">
+      <div class="container">
+        <h2 style="font-size:2rem; font-weight:700; margin-bottom:2rem">Let's Connect</h2>
+        <div class="social-links">
+           <a href="mailto:manjunadh415@gmail.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+           
+           
+           
+        </div>
+        <p style="opacity:0.6; font-size:0.9rem">© 2026 V S Manjunadh. Built with <a href="https://csedge.co" target="_blank" style="color:inherit; text-decoration:none; font-weight:600">CSEdge</a>.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true, offset: 50 });
+    </script>
+  </body>
+  </html>
+  
