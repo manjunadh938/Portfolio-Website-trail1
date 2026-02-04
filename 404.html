@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--
+  404 Page - CSEdge Portfolio Builder
+  This page is shown when a visitor accesses a non-existent page
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | manjunadh938 Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .error-code {
+            font-size: clamp(8rem, 20vw, 15rem);
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(to right, #fff, rgba(255,255,255,0.6));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            text-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        .branding {
+            margin-top: 3rem;
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+        
+        .branding a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.2s ease;
+        }
+        
+        .branding a:hover {
+            border-bottom-color: white;
+            opacity: 1;
+        }
+        
+        /* Decorative elements */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: #ff6b9d;
+            top: -10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+        
+        .blob-2 {
+            width: 300px;
+            height: 300px;
+            background: #ffd93d;
+            bottom: -5%;
+            right: -5%;
+            animation-delay: 5s;
+        }
+        
+        .blob-3 {
+            width: 250px;
+            height: 250px;
+            background: #6bcf7f;
+            top: 50%;
+            right: 10%;
+            animation-delay: 10s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 1.5rem; }
+            .error-code { font-size: clamp(6rem, 25vw, 10rem); }
+            .buttons { flex-direction: column; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    
+    <div class="container">
+        <div class="error-code">404</div>
+        <h1>Oops! Page Not Found</h1>
+        <p>The page you're looking for doesn't seem to exist. It might have been moved or deleted.</p>
+        
+        <div class="buttons">
+            <a href="/" class="btn btn-primary">Back to Portfolio</a>
+            <a href="https://csedge.co" target="_blank" class="btn btn-secondary">Build Your Own</a>
+        </div>
+        
+        <div class="branding">
+            Portfolio powered by <a href="https://csedge.co" target="_blank">CSEdge Portfolio Builder</a>
+        </div>
+    </div>
+</body>
+</html>
